@@ -18,11 +18,11 @@ const styleHeader = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    height: "40px",
+    height: "60px",
     justifyContent: "flex-end",
     padding: "0 30px",
     backgroundColor: "white",
-    fontSize: "12px"
+    fontSize: "20px"
 }
 
 const headerItem = {
@@ -36,7 +36,6 @@ const headerItem = {
     return (
         <div style={styleHeader}>
             <div style={headerItem}>{iconGlobe} En {iconArrow}</div>
-            <div style={headerItem}>Please log in {iconArrow}</div>
         </div>
     );
 }

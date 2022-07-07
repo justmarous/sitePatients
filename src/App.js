@@ -8,7 +8,8 @@ const styleApp = {
     display: "flex",
     flexDirection: "row",
     fontFamily: "poppins",
-    minWidth: "800px"
+    minWidth: "800px",
+    boxSizing: "border-box"
 }
 
 function App() {

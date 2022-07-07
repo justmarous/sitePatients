@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBurger,
-    faCross,
+    faCross, faDna,
     faFileCircleQuestion, faGripHorizontal,
     faHamburger,
     faHandsHelping,
@@ -14,6 +14,8 @@ function Menu(props) {
     const icon1 = <FontAwesomeIcon icon={faQuestion} />
     const icon2 = <FontAwesomeIcon icon={faPerson} />
     const icon3 = <FontAwesomeIcon icon={faGripHorizontal} />
+    const icon4 = <FontAwesomeIcon icon={faDna} />
+
 
 
     const styleMenu = {
@@ -27,21 +29,23 @@ function Menu(props) {
 
 
     const styleLogo = {
-        top: "10px",
+        top: "20px",
         left: "40px",
         position: "absolute",
         width: "100px",
         height: "50px",
-        backgroundColor: "#2FF",
-        cursor:"pointer"
-
+        cursor:"pointer",
+        textAlign: "center",
+        color: "white",
+        fontSize: "20px",
+        lineHeight: "10px"
     }
 
     const styleList = {
         position: "absolute",
         listStyle: "none",
         color: "white",
-        top: "60px",
+        top: "100px",
         cursor:"pointer",
         fontSize: "12px"
     }
@@ -67,11 +71,11 @@ function Menu(props) {
     return (
         <div style={styleMenu}>
 
-            <div style={styleLogo}> </div>
+            <div style={styleLogo}>{icon4}DEN97 <p style={{fontSize: "9px", color: "black"}}>research unit</p></div>
             <div style={styleBurger}>{icon3}</div>
 
             <ul style={styleList}>
-                <li key={3}><div style={styleListItem}>{icon2}</div> Patients</li>
+                {/*<li key={3}><div style={styleListItem}>{icon2}</div> Patients</li>*/}
                 <li key={4}><div style={styleListItem}>{icon1}</div> Support</li>
             </ul>
         </div>
