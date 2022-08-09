@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import MyPatients from "./components/MyPatients";
 import Landing from "./components/Landing";
 import Menu from "./components/Menu";
+import Header from "./components/Header";
 
 const Test = () => {
   console.log("dupa");
@@ -28,6 +29,21 @@ function Dupa() {
   return <h1>Wrong address</h1>;
 }
 
+const style = {
+  app: {
+    display: "flex",
+    flexDirection: "row",
+    fontFamily: "poppins",
+    minWidth: "800px",
+    boxSizing: "border-box",
+  },
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+  },
+};
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -36,55 +52,49 @@ root.render(
           <Route
             path="/"
             element={
-              <>
+              <div style={style.app}>
                 <Menu />
-                <Landing
-                  style={{
-                    position: "fixed",
-                    top: "10px",
-                    display: "block",
-                  }}
-                />
-                {/*<App />*/}
-              </>
+                <div style={style.main}>
+                  <Header />
+                  <Landing />
+                </div>
+              </div>
             }
           />
           <Route
             path="/support"
             element={
-              <>
-                <Support />
-              </>
+              <div style={style.app}>
+                <Menu />
+                <div style={style.main}>
+                  <Header />
+                  <Support style={style.main} />
+                </div>
+              </div>
             }
           />
           <Route
             path="/my-patients"
             element={
-              <>
-                <App />
-                <MyPatients
-                  style={{
-                    position: "fixed",
-                    top: "10px",
-                    display: "block",
-                  }}
-                />
-              </>
+              <div style={style.app}>
+                <Menu />
+                <div style={style.main}>
+                  <Header />
+                  <MyPatients style={style.main} />
+                </div>
+              </div>
             }
           />
           <Route
             path="*"
             element={
-              <>
-                <App />
-                <Dupa
-                  style={{
-                    position: "relative",
-                    top: "10px",
-                    display: "block",
-                  }}
-                />
-              </>
+              <div style={style.app}>
+                <Menu />
+                <div style={style.main}>
+                  <Header />
+                  <Dupa />
+                </div>
+              </div>
             }
           />
         </Routes>

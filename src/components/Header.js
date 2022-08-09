@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowTurnDown, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectUser } from "../redux/userSlice";
 import Dropdown from "react-bootstrap/Dropdown";
+import {useNavigate} from 'react-router-dom';
 import SplitButton from "react-bootstrap/SplitButton";
 
 function Header(props) {
@@ -56,6 +57,16 @@ function Header(props) {
   }
 
   const AfterLogin = () => {
+    const navigate = useNavigate();
+    const back = useCallback(
+      () => navigate("/", { replace: true }),
+      [navigate]
+    );
+
+    function handleLogOut() {
+      dispatch(logOut());
+    }
+
     return (
       <SplitButton
         key={"warning"}
@@ -65,7 +76,7 @@ function Header(props) {
       >
         <Dropdown.Item eventKey="1">Configure</Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item eventKey="2" onClick={(e) => dispatch(logOut())}>
+        <Dropdown.Item eventKey="2" onClick={back)}>
           Log out
         </Dropdown.Item>
       </SplitButton>
