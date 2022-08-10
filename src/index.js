@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./components/App";
+import Configure from "./components/Configure";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter, Route, Routes, Switch } from "react-router-dom";
 import Support from "./components/Support";
@@ -93,6 +93,18 @@ root.render(
                 <div style={style.main}>
                   <Header />
                   <Dupa />
+                </div>
+              </div>
+            }
+          />
+          <Route
+            path="/configure"
+            element={
+              <div style={style.app}>
+                <Menu />
+                <div style={style.main}>
+                  <Header />
+                  <Configure />
                 </div>
               </div>
             }

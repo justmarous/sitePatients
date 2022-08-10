@@ -4,7 +4,6 @@ import {
   faBars,
   faDna,
   faKey,
-  faPerson,
   faQuestion,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
@@ -75,6 +74,11 @@ function Menu(props) {
   const [menuStyle, setMenuStyle] = useState(style.menu);
   const [hideElements, setHideElements] = useState(false);
 
+  function handleLogOut() {
+    console.log("logging out... ");
+    dispatch(logOut());
+  }
+
   const AfterLogin = () => {
     return (
       <>
@@ -84,10 +88,12 @@ function Menu(props) {
             My patients
           </li>
         </Link>
-        <li key={5} onClick={(e) => dispatch(logOut())}>
-          <div style={style.listItem}>{iconLogOut}</div>
-          Log out
-        </li>
+        <Link to={"/"} style={style.link}>
+          <li key={5} onClick={() => handleLogOut()}>
+            <div style={style.listItem}>{iconLogOut}</div>
+            Log out
+          </li>
+        </Link>
       </>
     );
   };
@@ -121,7 +127,6 @@ function Menu(props) {
             <div style={style.listItem}>{iconSupport}</div> Support
           </li>
         </Link>
-
         {user.name !== "" ? <AfterLogin /> : null}
       </ul>
     </div>

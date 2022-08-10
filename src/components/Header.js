@@ -4,7 +4,7 @@ import { faArrowTurnDown, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectUser } from "../redux/userSlice";
 import Dropdown from "react-bootstrap/Dropdown";
-import {useNavigate} from 'react-router-dom';
+import { Link, useHistory, useNavigate } from "react-router-dom";
 import SplitButton from "react-bootstrap/SplitButton";
 
 function Header(props) {
@@ -33,6 +33,10 @@ function Header(props) {
       margin: "30px",
       cursor: "pointer",
     },
+    link: {
+      textDecoration: "none",
+      color: "black",
+    },
   };
 
   function SplitVariantExample() {
@@ -57,16 +61,6 @@ function Header(props) {
   }
 
   const AfterLogin = () => {
-    const navigate = useNavigate();
-    const back = useCallback(
-      () => navigate("/", { replace: true }),
-      [navigate]
-    );
-
-    function handleLogOut() {
-      dispatch(logOut());
-    }
-
     return (
       <SplitButton
         key={"warning"}
@@ -74,10 +68,16 @@ function Header(props) {
         variant={"warning"}
         title={name}
       >
-        <Dropdown.Item eventKey="1">Configure</Dropdown.Item>
+        <Dropdown.Item eventKey="1">
+          <Link style={style.link} to={"/configure"}>
+            Configure
+          </Link>
+        </Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item eventKey="2" onClick={back)}>
-          Log out
+        <Dropdown.Item eventKey="2" onClick={() => dispatch(logOut())}>
+          <Link style={style.link} to={"/"}>
+            Log out
+          </Link>
         </Dropdown.Item>
       </SplitButton>
     );
