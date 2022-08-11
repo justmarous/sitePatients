@@ -33,7 +33,7 @@ const style = {
   app: {
     display: "flex",
     flexDirection: "row",
-    fontFamily: "poppins",
+    fontFamily: "poppins, helvetica, arial",
     minWidth: "800px",
     boxSizing: "border-box",
   },

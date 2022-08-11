@@ -65,9 +65,7 @@ function Landing(props) {
       zIndex: "1",
       minWidth: "1000px",
       transition: "0.1s",
-      filter: !resetting ? "none" : "blur(4px)",
-      margin: "(-8px,0,0,-8px)",
-      //blur repositions some elements for some reason
+      filter: !resetting ? "blur(0)" : "blur(10px)",
     },
   };
 

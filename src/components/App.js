@@ -10,7 +10,7 @@ const style = {
   app: {
     display: "flex",
     flexDirection: "row",
-    fontFamily: "poppins",
+    fontFamily: "arial, sans",
     minWidth: "800px",
     boxSizing: "border-box",
   },

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { doReset } from "../redux/resetSlice";
+import { doReset, selectResettingState } from "../redux/resetSlice";
 import { selectListUser } from "../redux/listUserSlice";
 import { setUser } from "../redux/userSlice";
 import { useForm } from "react-hook-form";
@@ -14,6 +14,7 @@ function Login() {
   const [registerForm, setRegisterForm] = useState(false);
   const [credentials, setCredentials] = useState({ login: "", password: "" });
   const [noSuchUser, setNoSuchUser] = useState(false);
+  const resetting = useSelector(selectResettingState);
 
   let style = {
     ...loginformStyles,
@@ -24,7 +25,8 @@ function Login() {
     },
     loginWindow: {
       ...loginformStyles.loginWindow,
-      height: !registerForm ? "350px" : "700px",
+      height: !registerForm ? "350px" : "600px",
+      // leftMargin: !resetting ? "none" : "-20px",
     },
   };
 

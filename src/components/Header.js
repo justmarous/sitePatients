@@ -70,13 +70,13 @@ function Header(props) {
       >
         <Dropdown.Item eventKey="1">
           <Link style={style.link} to={"/configure"}>
-            Configure
+            <div style={{ width: "100%" }}>Configure</div>
           </Link>
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item eventKey="2" onClick={() => dispatch(logOut())}>
           <Link style={style.link} to={"/"}>
-            Log out
+            <div style={{ width: "100%" }}>Log out</div>
           </Link>
         </Dropdown.Item>
       </SplitButton>

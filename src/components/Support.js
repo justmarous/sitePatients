@@ -46,7 +46,7 @@ function Support(props) {
         not to create secure solution for handling user data, as it is not the
         point of my interest, but to mimic behaviour of using such webpage.
       </p>
-      <p>All new user data will be erased after cache reset of the webpage.</p>
+      <p>All new user data will be erased after refresh.</p>
     </section>
   );
 }
