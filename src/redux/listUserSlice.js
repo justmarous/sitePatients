@@ -18,10 +18,14 @@ export const listUserSlice = createSlice({
     addUser: (state, action) => {
       return [...state, action.payload];
     },
+    removeUser: (state, action) => {
+      console.log("deleting " + action.payload.login);
+      return state.filter((element) => element.login !== action.payload.login);
+    },
   },
 });
 
 export const selectListUser = (state) => state.listUser;
 
-export const { addUser } = listUserSlice.actions;
+export const { addUser, removeUser } = listUserSlice.actions;
 export default listUserSlice.reducer;

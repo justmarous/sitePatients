@@ -8,7 +8,5 @@ export const formSchema = Yup.object().shape({
   cpassword: Yup.string()
     .required("Confirm Password is required")
     .oneOf([Yup.ref("password")], "Passwords do not match"),
-  login: Yup.string()
-    .required("Email address is required")
-    .email("must be a valid email"),
+  login: Yup.string().required("Email address is required"),
 });

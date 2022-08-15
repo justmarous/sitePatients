@@ -33,7 +33,7 @@ function RegisterForm() {
       <label>Last name</label>
       <input {...register("surname")} style={style.input} />
       <label>Email</label>
-      <input {...register("email")} style={style.input} />
+      <input {...register("login")} style={style.input} />
       <label>Password</label>
       <input {...register("password")} style={style.input} type={"password"} />
       <label>Repeat password</label>

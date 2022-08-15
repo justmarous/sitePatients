@@ -39,27 +39,6 @@ function Header(props) {
     },
   };
 
-  function SplitVariantExample() {
-    return (
-      <>
-        <SplitButton
-          key={"Warning"}
-          id={`dropdown-split-variants-${"Warning"}`}
-          variant={"Warning"}
-          title={"Warning"}
-        >
-          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-          <Dropdown.Item eventKey="3" active>
-            Active Item
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-        </SplitButton>
-      </>
-    );
-  }
-
   const AfterLogin = () => {
     return (
       <SplitButton
@@ -74,9 +53,11 @@ function Header(props) {
           </Link>
         </Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item eventKey="2" onClick={() => dispatch(logOut())}>
+        <Dropdown.Item eventKey="2">
           <Link style={style.link} to={"/"}>
-            <div style={{ width: "100%" }}>Log out</div>
+            <div style={{ width: "100%" }} onClick={() => dispatch(logOut())}>
+              Log out
+            </div>
           </Link>
         </Dropdown.Item>
       </SplitButton>

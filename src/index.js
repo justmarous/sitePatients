@@ -53,7 +53,7 @@ root.render(
             path="/"
             element={
               <div style={style.app}>
-                <Menu />
+                <Menu style={{ position: "fixed" }} />
                 <div style={style.main}>
                   <Header />
                   <Landing />
@@ -65,7 +65,7 @@ root.render(
             path="/support"
             element={
               <div style={style.app}>
-                <Menu />
+                <Menu style={{ position: "fixed" }} />
                 <div style={style.main}>
                   <Header />
                   <Support style={style.main} />
@@ -77,7 +77,7 @@ root.render(
             path="/my-patients"
             element={
               <div style={style.app}>
-                <Menu />
+                <Menu style={{ position: "fixed" }} />
                 <div style={style.main}>
                   <Header />
                   <MyPatients style={style.main} />
@@ -89,7 +89,7 @@ root.render(
             path="*"
             element={
               <div style={style.app}>
-                <Menu />
+                <Menu style={{ position: "fixed" }} />
                 <div style={style.main}>
                   <Header />
                   <Dupa />
@@ -101,7 +101,7 @@ root.render(
             path="/configure"
             element={
               <div style={style.app}>
-                <Menu />
+                <Menu style={{ display: "relative", position: "fixed" }} />
                 <div style={style.main}>
                   <Header />
                   <Configure />
