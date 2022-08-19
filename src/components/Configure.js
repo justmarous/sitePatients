@@ -73,6 +73,7 @@ const Configure = () => {
     telephone: user.telephone,
     country: user.country,
     password: user.password,
+    patients: user.patients,
   });
 
   function handleSubmit(e) {

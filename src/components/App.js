@@ -28,7 +28,6 @@ function App() {
         <Menu />
         <div style={style.main}>
           <Header />
-          {/*<Landing />*/}
         </div>
       </div>
     </>

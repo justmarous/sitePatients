@@ -11,7 +11,6 @@ import { selectResettingState } from "../redux/resetSlice";
 import { useSelector } from "react-redux";
 import ResetPassword from "./ResetPassword";
 import { selectUser } from "../redux/userSlice";
-import Cockpit from "./Cockpit";
 import MyPatients from "./MyPatients";
 
 function Landing(props) {

@@ -12,6 +12,7 @@ import MyPatients from "./components/MyPatients";
 import Landing from "./components/Landing";
 import Menu from "./components/Menu";
 import Header from "./components/Header";
+import Patient from "./components/Patient";
 
 const Test = () => {
   console.log("dupa");
@@ -105,6 +106,18 @@ root.render(
                 <div style={style.main}>
                   <Header />
                   <Configure />
+                </div>
+              </div>
+            }
+          />
+          <Route
+            path="/my-patients/:index"
+            element={
+              <div style={style.app}>
+                <Menu style={{ display: "relative", position: "fixed" }} />
+                <div style={style.main}>
+                  <Header />
+                  <Patient />
                 </div>
               </div>
             }

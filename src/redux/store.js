@@ -1,24 +1,22 @@
-import {configureStore} from "@reduxjs/toolkit";
-import logger from "redux-logger"
+import { configureStore } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 import resetReducer from "./resetSlice";
-import userReducer from "./userSlice"
-import listUserReducer from "./listUserSlice"
+import userReducer from "./userSlice";
+import listUserReducer from "./listUserSlice";
+import registerFormReducer from "./registerFormSlice";
 
-
-
-const middlewares = [logger]
+const middlewares = [logger];
 
 const store = configureStore({
-    reducer: {
-        reset: resetReducer,
-        user: userReducer,
-        listUser: listUserReducer,
-    },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(...middlewares)
-})
-
-
+  reducer: {
+    reset: resetReducer,
+    user: userReducer,
+    listUser: listUserReducer,
+    registerForm: registerFormReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(...middlewares),
+});
 
 export default store;
 

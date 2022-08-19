@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../tools/formSchema";
 import { loginformStyles as style } from "../styles/loginformStyles";
+import { switchForm } from "../redux/registerFormSlice";
 
 function RegisterForm() {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function RegisterForm() {
   const onSubmit = (data) => {
     dispatch(addUser(data));
     console.log(data);
+    dispatch(switchForm(false));
   };
 
   const {

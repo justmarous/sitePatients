@@ -7,6 +7,7 @@ const initialState = {
   password: "",
   telephone: "",
   country: "",
+  patients: [],
 };
 
 export const userSlice = createSlice({
@@ -25,6 +26,12 @@ export const userSlice = createSlice({
 });
 
 export const selectUser = (state) => state.user;
+export const selectPatientsId = (state) => {
+  let indexes = [];
+  console.log(state.user);
+  state.user.patients.forEach((e) => indexes.push(e.index));
+  return indexes;
+};
 
 export const { setUser, logOut } = userSlice.actions;
 export default userSlice.reducer;

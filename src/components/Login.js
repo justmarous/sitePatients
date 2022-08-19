@@ -7,11 +7,12 @@ import { useForm } from "react-hook-form";
 import { loginformStyles } from "../styles/loginformStyles";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { selectRegisterForm, switchForm } from "../redux/registerFormSlice";
 
 function Login() {
   const listUser = useSelector(selectListUser);
   const dispatch = useDispatch();
-  const [registerForm, setRegisterForm] = useState(false);
+  const registerForm = useSelector(selectRegisterForm);
   const [credentials, setCredentials] = useState({ login: "", password: "" });
   const [noSuchUser, setNoSuchUser] = useState(false);
   const resetting = useSelector(selectResettingState);
@@ -25,23 +26,23 @@ function Login() {
     },
     loginWindow: {
       ...loginformStyles.loginWindow,
-      height: !registerForm ? "350px" : "600px",
+      height: registerForm ? "350px" : "600px",
       // leftMargin: !resetting ? "none" : "-20px",
     },
   };
 
   let styleRegister = {
     ...style.loginRegister,
-    color: registerForm ? "black" : "white",
-    backgroundColor: registerForm ? "white" : "orange",
+    color: registerForm ? "white" : "black",
+    backgroundColor: registerForm ? "orange" : "white",
   };
 
   let styleLogin = {
     ...style.loginRegister,
     right: "0",
     zIndex: "2",
-    color: !registerForm ? "black" : "white",
-    backgroundColor: !registerForm ? "white" : "orange",
+    color: registerForm ? "black" : "white",
+    backgroundColor: registerForm ? "white" : "orange",
   };
 
   const {
@@ -54,15 +55,15 @@ function Login() {
   return (
     <div style={style.loginWindow}>
       <div style={style.loginRegisterParent}>
-        <div style={styleRegister} onClick={() => setRegisterForm(true)}>
+        <div style={styleRegister} onClick={() => dispatch(switchForm(false))}>
           Register
         </div>
-        <div style={styleLogin} onClick={() => setRegisterForm(false)}>
+        <div style={styleLogin} onClick={() => dispatch(switchForm(true))}>
           Sign in here
         </div>
       </div>
       <div style={style.inputWindow}>
-        {!registerForm ? <LoginForm /> : <RegisterForm />}
+        {registerForm ? <LoginForm /> : <RegisterForm />}
       </div>
     </div>
   );

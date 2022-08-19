@@ -66,9 +66,9 @@ function Header(props) {
 
   return (
     <div style={style.header}>
-      <div style={style.item}>
-        {iconGlobe} En {iconArrow}
-      </div>
+      {/*<div style={style.item}>*/}
+      {/*  {iconGlobe} En {iconArrow}*/}
+      {/*</div>*/}
       {name !== "" ? <AfterLogin /> : null}
     </div>
   );
