@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../redux/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const style = {
   patients: {
@@ -105,6 +106,7 @@ const style = {
       width: "100%",
       textAlign: "center",
       marginTop: "10px",
+      textDecoration: "none",
     },
     edit: {
       fontSize: "12px",
@@ -116,6 +118,7 @@ const style = {
       cursor: "pointer",
       width: "100%",
       textAlign: "center",
+      textDecoration: "none",
     },
   },
 };
@@ -149,6 +152,7 @@ const NewPatient = () => {
 };
 
 const Patient = (patient) => {
+  console.log(patient.patient.index);
   return (
     <div style={style.patientCard.box}>
       <h2 style={style.patientCard.title}>
@@ -165,8 +169,18 @@ const Patient = (patient) => {
           </p>
         </span>
       </div>
-      <h2 style={style.patientCard.viewDashboard}>Click to see dashboard</h2>
-      <h2 style={style.patientCard.edit}>Edit information here</h2>
+      <Link
+        to={"/my-patients/" + patient.patient.index}
+        style={style.patientCard.viewDashboard}
+      >
+        Click to see dashboard
+      </Link>
+      <Link
+        to={"/my-patients/" + patient.patient.index + "/edit"}
+        style={style.patientCard.edit}
+      >
+        Edit information here
+      </Link>
     </div>
   );
 };
