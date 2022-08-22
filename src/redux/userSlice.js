@@ -7,7 +7,21 @@ const initialState = {
   password: "",
   telephone: "",
   country: "",
-  patients: [],
+  patients: [
+    {
+      name: "",
+      surname: "",
+      email: "",
+      gender: "",
+      birth: "",
+      location: "",
+      telephone: "",
+      index: "",
+      mutation: "",
+      classification: "",
+      seizureDiary: "",
+    },
+  ],
 };
 
 export const userSlice = createSlice({

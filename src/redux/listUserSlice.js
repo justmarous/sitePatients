@@ -44,7 +44,7 @@ export const listUserSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
-      return [...state, { ...action.payload, patients: [] }];
+      return [...state, { ...action.payload }];
     },
     removeUser: (state, action) => {
       console.log("deleting " + action.payload.login);

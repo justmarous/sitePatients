@@ -76,8 +76,12 @@ const Configure = () => {
     patients: user.patients,
   });
 
+  console.log(user.patients);
+
   function handleSubmit(e) {
     e.preventDefault();
+    console.table(user);
+
     dispatch(removeUser(user));
     for (let i = 0; i < listUser.length; i++) {
       if (listUser[i].login === user.login) {
@@ -85,6 +89,7 @@ const Configure = () => {
         console.log(listUser[i]);
       }
     }
+    console.table(userData);
     dispatch(setUser(userData));
     dispatch(addUser(userData));
   }
