@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb01288-6561-4456-b9f7-7c98363b58da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Patient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/registerFormSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cockpit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Configure.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Configure.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Landing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyPatients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyPatients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/listUserSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/listUserSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/userSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +74,8 @@
       <workItem from="1660573871588" duration="2865000" />
       <workItem from="1660592823013" duration="1611000" />
       <workItem from="1660660028027" duration="11017000" />
-      <workItem from="1660923570704" duration="1942000" />
+      <workItem from="1660923570704" duration="4811000" />
+      <workItem from="1661184324889" duration="1221000" />
     </task>
     <servers />
   </component>
