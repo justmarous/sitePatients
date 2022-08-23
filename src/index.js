@@ -14,6 +14,7 @@ import Menu from "./components/Menu";
 import Header from "./components/Header";
 import Patient from "./components/Patient";
 import PatientEdit from "./components/PatientEdit";
+import PatientAdd from "./components/PatientAdd";
 
 const Test = () => {
   console.log("dupa");
@@ -131,6 +132,18 @@ root.render(
                 <div style={style.main}>
                   <Header />
                   <PatientEdit />
+                </div>
+              </div>
+            }
+          />{" "}
+          <Route
+            path="/add"
+            element={
+              <div style={style.app}>
+                <Menu style={{ display: "relative", position: "fixed" }} />
+                <div style={style.main}>
+                  <Header />
+                  <PatientAdd />
                 </div>
               </div>
             }

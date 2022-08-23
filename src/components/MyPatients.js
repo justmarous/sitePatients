@@ -31,6 +31,7 @@ const style = {
     borderRadius: "20px",
     color: "grey",
     cursor: "pointer",
+    textDecoration: "none",
   },
   header: {
     width: "100%",
@@ -146,7 +147,9 @@ const NewPatient = () => {
 
   return (
     <div style={style.createBox}>
-      <h2 style={style.addPatient}>{iconPlus} Add a new patient</h2>
+      <Link to={"/add/"} style={style.addPatient}>
+        {iconPlus} Add a new patient
+      </Link>
     </div>
   );
 };

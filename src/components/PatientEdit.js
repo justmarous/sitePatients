@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPatientsId, selectUser, setUser } from "../redux/userSlice";
 import { addUser, removeUser, selectListUser } from "../redux/listUserSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   h1: {
@@ -43,6 +45,25 @@ const style = {
     height: "40px",
     marginBottom: "5px",
     cursor: "pointer",
+    textDecoration: "none",
+  },
+  link: {
+    position: "relative",
+    borderRadius: "10px",
+    width: "250px",
+    display: "block",
+    margin: "30px 25%",
+    border: "none",
+    color: "white",
+    backgroundColor: "green",
+    fontWeight: "700",
+    fontSize: "16px",
+    height: "40px",
+    marginBottom: "5px",
+    cursor: "pointer",
+    textDecoration: "none",
+    textAlign: "center",
+    paddingTop: "7px",
   },
 };
 
@@ -52,59 +73,47 @@ function PatientEdit(props) {
   const dispatch = useDispatch();
   const listUser = useSelector(selectListUser);
   const allPatients = useSelector(selectPatientsId);
-  const patient = user.patients.filter((e) => e.index === index)[0];
+  const importedPatient = user.patients.filter((e) => e.index === index)[0];
 
-  const [userData, setUserData] = useState({
-    ...user,
-    patients: user.patients,
-  });
-
-  // {
-  //   name: "Miko",
-  //       surname: "Ortega",
-  //     email: "megasnake@gmail.com",
-  //     gender: "male",
-  //     birth: "2000-11-02",
-  //     location: "New Orlean",
-  //     telephone: "+190 103 212 135",
-  //     index: "12313",
-  //     mutation: "",
-  //     classification: "",
-  //     seizureDiary: "",
-  // },
+  const [patientData, setPatientData] = useState(importedPatient);
+  const iconBack = <FontAwesomeIcon icon={faBackward} />;
 
   function handleSubmit(e) {
-    for (let i = 0; i < user.patients.length; i++) {
-      if (listUser[i].index === user.index) {
-        dispatch(removeUser(listUser[i]));
-      }
-    }
-
     e.preventDefault();
-    dispatch(removeUser(user));
-    for (let i = 0; i < listUser.length; i++) {
-      if (listUser[i].login === user.login) {
-        dispatch(removeUser(listUser[i]));
-        console.log(listUser[i]);
-      }
-    }
-    dispatch(setUser(userData));
-    dispatch(addUser(userData));
+    // for (let i = 0; i < user.patients.length; i++) {
+    //   if (listUser[i].index === user.index) {
+    //     dispatch(removeUser(listUser[i]));
+    //   }
+    // }
+    //
+    // e.preventDefault();
+    // dispatch(removeUser(user));
+    // for (let i = 0; i < listUser.length; i++) {
+    //   if (listUser[i].login === user.login) {
+    //     dispatch(removeUser(listUser[i]));
+    //     console.log(listUser[i]);
+    //   }
+    // }
+    // dispatch(setUser(userData));
+    // dispatch(addUser(userData));
+
+    console.log(patientData);
   }
 
   return (
     <>
       <h1 style={style.h1}>Patient ID: {index}</h1>
+
       {allPatients.indexOf(index) !== -1 ? (
         <section style={style.section}>
           <form style={style.data} onSubmit={(e) => handleSubmit(e)}>
             <label>First name</label>
             <input
               style={style.input}
-              value={patient.name}
+              value={patientData.name}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   name: e.target.value,
                 })
               }
@@ -112,10 +121,10 @@ function PatientEdit(props) {
             <label>Surname</label>
             <input
               style={style.input}
-              value={patient.surname}
+              value={patientData.surname}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   surname: e.target.value,
                 })
               }
@@ -123,10 +132,10 @@ function PatientEdit(props) {
             <label>Email address</label>
             <input
               style={style.input}
-              value={patient.email}
+              value={patientData.email}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   surname: e.target.value,
                 })
               }
@@ -134,10 +143,10 @@ function PatientEdit(props) {
             <label>Gender</label>
             <input
               style={style.input}
-              value={patient.gender}
+              value={patientData.gender}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   surname: e.target.value,
                 })
               }
@@ -145,10 +154,10 @@ function PatientEdit(props) {
             <label>Phone number</label>
             <input
               style={style.input}
-              value={patient.telephone}
+              value={patientData.telephone}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   telephone: e.target.value,
                 })
               }
@@ -156,10 +165,10 @@ function PatientEdit(props) {
             <label>Date of birth</label>
             <input
               style={style.input}
-              value={patient.birth}
+              value={patientData.birth}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   country: e.target.value,
                 })
               }
@@ -167,10 +176,10 @@ function PatientEdit(props) {
             <label>Location</label>
             <input
               style={style.input}
-              value={patient.location}
+              value={patientData.location}
               onChange={(e) =>
-                setUserData({
-                  ...userData,
+                setPatientData({
+                  ...patientData,
                   country: e.target.value,
                 })
               }
@@ -182,6 +191,9 @@ function PatientEdit(props) {
             >
               Change data
             </button>
+            <Link style={style.link} to={"/my-patients/"}>
+              {iconBack} Back
+            </Link>
           </form>
         </section>
       ) : (

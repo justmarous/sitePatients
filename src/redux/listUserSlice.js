@@ -50,6 +50,15 @@ export const listUserSlice = createSlice({
       console.log("deleting " + action.payload.login);
       return state.filter((element) => element.login !== action.payload.login);
     },
+    updatePatient: (state, action) => {
+      return state.forEach((e) => {
+        if (e.login === action.payload.login) {
+          return e.patients.forEach((p) => {
+            if (p.index === action.payload.index) return;
+          });
+        }
+      });
+    },
   },
 });
 

@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb01288-6561-4456-b9f7-7c98363b58da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/PatientEdit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PatientAdd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyPatients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyPatients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PatientEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PatientEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/listUserSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/listUserSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +80,8 @@
       <workItem from="1660592823013" duration="1611000" />
       <workItem from="1660660028027" duration="11017000" />
       <workItem from="1660923570704" duration="4811000" />
-      <workItem from="1661184324889" duration="8840000" />
+      <workItem from="1661184324889" duration="9069000" />
+      <workItem from="1661266858108" duration="3607000" />
     </task>
     <servers />
   </component>

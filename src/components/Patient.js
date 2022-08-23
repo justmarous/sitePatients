@@ -1,8 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { selectPatientsId, selectUser } from "../redux/userSlice";
 import { useSelector } from "react-redux";
 import shortid from "shortid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward } from "@fortawesome/free-solid-svg-icons";
 
 const style = {
   header: {
@@ -62,6 +64,24 @@ const style = {
     margin: "10px",
     backgroundColor: "white",
   },
+  link: {
+    position: "relative",
+    borderRadius: "10px",
+    width: "250px",
+    display: "block",
+    margin: "30px 25%",
+    border: "none",
+    color: "white",
+    backgroundColor: "green",
+    fontWeight: "700",
+    fontSize: "16px",
+    height: "40px",
+    marginBottom: "5px",
+    cursor: "pointer",
+    textDecoration: "none",
+    textAlign: "center",
+    paddingTop: "7px",
+  },
 };
 
 function Patient(props) {
@@ -69,6 +89,8 @@ function Patient(props) {
   const user = useSelector(selectUser);
   const allPatients = useSelector(selectPatientsId);
   const patient = user.patients.filter((e) => e.index === index)[0];
+
+  const iconBack = <FontAwesomeIcon icon={faBackward} />;
 
   return (
     <>
@@ -90,6 +112,9 @@ function Patient(props) {
       ) : (
         <h1> There is no such patient as {index}</h1>
       )}
+      <Link style={style.link} to={"/my-patients/"}>
+        {iconBack} Back
+      </Link>
     </>
   );
 }
