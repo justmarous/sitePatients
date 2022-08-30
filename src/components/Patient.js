@@ -27,43 +27,79 @@ const style = {
     display: "flex",
     flexDirection: "column",
   },
-  profile: {
-    height: "100px",
-    borderRadius: "15px",
-    boxShadow: "0px 3px 7px rgba(0,150,0,0.35)",
-    margin: "20px",
-  },
-  genetics: {
-    height: "400px",
-    borderRadius: "15px",
-    boxShadow: "0px 3px 7px rgba(0,150,0,0.35)",
-    margin: "20px",
-    width: "50%",
-  },
-  diary: {
-    width: "50%",
-    height: "400px",
-    borderRadius: "15px",
-    boxShadow: "0px 3px 7px rgba(0,150,0,0.35)",
-    margin: "20px",
-  },
+
   secondRow: {
     display: "flex",
     flexDirection: "row",
   },
-  edit: {
-    fontSize: "12px",
-    display: "border-box",
-    border: "1px solid grey",
-    padding: "7px 0",
-    borderRadius: "20px",
-    color: "grey",
-    cursor: "pointer",
-    width: "240px",
-    textAlign: "center",
-    margin: "10px",
-    backgroundColor: "white",
+  genetics: {
+    edit: {
+      fontSize: "12px",
+      display: "border-box",
+      border: "1px solid grey",
+      padding: "7px 0",
+      borderRadius: "20px",
+      color: "grey",
+      cursor: "pointer",
+      width: "240px",
+      textAlign: "center",
+      margin: "10px",
+      backgroundColor: "white",
+    },
+    box: {
+      width: "50%",
+      height: "400px",
+      borderRadius: "15px",
+      boxShadow: "0px 3px 7px rgba(0,150,0,0.35)",
+      margin: "20px",
+    },
   },
+  diary: {
+    edit: {
+      fontSize: "12px",
+      display: "border-box",
+      border: "1px solid grey",
+      padding: "7px 0",
+      borderRadius: "20px",
+      color: "grey",
+      cursor: "pointer",
+      width: "240px",
+      textAlign: "center",
+      margin: "10px",
+      backgroundColor: "white",
+    },
+    box: {
+      height: "400px",
+      borderRadius: "15px",
+      boxShadow: "0px 3px 7px rgba(0,150,0,0.35)",
+      margin: "20px",
+      width: "50%",
+    },
+  },
+  profile: {
+    edit: {
+      fontSize: "12px",
+      display: "block",
+      boxSizing: "border-box",
+      border: "1px solid grey",
+      padding: "7px 0",
+      borderRadius: "20px",
+      color: "grey",
+      cursor: "pointer",
+      width: "240px",
+      textAlign: "center",
+      margin: "10px",
+      backgroundColor: "white",
+      textDecoration: "none",
+    },
+    box: {
+      height: "100px",
+      borderRadius: "15px",
+      boxShadow: "0px 3px 7px rgba(0,150,0,0.35)",
+      margin: "20px",
+    },
+  },
+
   link: {
     position: "relative",
     borderRadius: "10px",
@@ -92,6 +128,32 @@ function Patient(props) {
 
   const iconBack = <FontAwesomeIcon icon={faBackward} />;
 
+  const Profile = () => {
+    return (
+      <div style={style.profile.box}>
+        <Link style={style.profile.edit} to={"/my-patients/" + index + "/edit"}>
+          Edit patient's profile
+        </Link>
+      </div>
+    );
+  };
+
+  const Genetics = () => {
+    return (
+      <div style={style.genetics.box}>
+        <button style={style.genetics.edit}>Edit genetic information</button>
+      </div>
+    );
+  };
+
+  const Diary = () => {
+    return (
+      <div style={style.diary.box}>
+        <button style={style.diary.edit}>Edit diary</button>
+      </div>
+    );
+  };
+
   return (
     <>
       <div style={style.header}>
@@ -118,29 +180,5 @@ function Patient(props) {
     </>
   );
 }
-
-const Profile = () => {
-  return (
-    <div style={style.profile}>
-      <button style={style.edit}>Edit patient's profile</button>
-    </div>
-  );
-};
-
-const Genetics = () => {
-  return (
-    <div style={style.genetics}>
-      <button style={style.edit}>Edit genetic information</button>
-    </div>
-  );
-};
-
-const Diary = () => {
-  return (
-    <div style={style.diary}>
-      <button style={style.edit}>Edit diary</button>
-    </div>
-  );
-};
 
 export default Patient;

@@ -50,12 +50,11 @@ export const listUserSlice = createSlice({
       console.log("deleting " + action.payload.login);
       return state.filter((element) => element.login !== action.payload.login);
     },
-    updatePatient: (state, action) => {
+    addPatient: (state, action) => {
+      //we pass payload = (userID,patient)
       return state.forEach((e) => {
-        if (e.login === action.payload.login) {
-          return e.patients.forEach((p) => {
-            if (p.index === action.payload.index) return;
-          });
+        if (e.login === action.payload.userID.toString()) {
+          e.patients.push(action.payload.patient);
         }
       });
     },
@@ -63,6 +62,9 @@ export const listUserSlice = createSlice({
 });
 
 export const selectListUser = (state) => state.listUser;
+export const selectCurrentUser = (state, login) => {
+  return state.listUser.filter((e) => e.login !== login)[0];
+};
 
-export const { addUser, removeUser } = listUserSlice.actions;
+export const { addUser, removeUser, addPatient } = listUserSlice.actions;
 export default listUserSlice.reducer;

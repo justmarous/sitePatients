@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPatientsId, selectUser, setUser } from "../redux/userSlice";
-import { addUser, removeUser, selectListUser } from "../redux/listUserSlice";
+import {
+  addPatient,
+  addUser,
+  removeUser,
+  selectListUser,
+} from "../redux/listUserSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -83,7 +88,10 @@ function PatientEdit(props) {
     birth: "",
     location: "",
     telephone: "",
-    index: "",
+    index:
+      allPatients.length !== 1
+        ? parseInt(allPatients[allPatients.length - 1]) + 1
+        : 1000,
     mutation: "",
     classification: "",
     seizureDiary: "",
@@ -92,28 +100,16 @@ function PatientEdit(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // for (let i = 0; i < user.patients.length; i++) {
-    //   if (listUser[i].index === user.index) {
-    //     dispatch(removeUser(listUser[i]));
-    //   }
-    // }
-    //
-    // e.preventDefault();
-    // dispatch(removeUser(user));
-    // for (let i = 0; i < listUser.length; i++) {
-    //   if (listUser[i].login === user.login) {
-    //     dispatch(removeUser(listUser[i]));
-    //     console.log(listUser[i]);
-    //   }
-    // }
-    // dispatch(setUser(userData));
-    // dispatch(addUser(userData));
-    console.log(patientData);
+    let dataForReducer = {
+      userID: user.login,
+      patient: patientData,
+    };
+    dispatch(addPatient(dataForReducer));
   }
 
   return (
     <>
-      <h1 style={style.h1}>Patient ID: {index}</h1>
+      <h1 style={style.h1}>Patient ID: {patientData.index}</h1>
       <section style={style.section}>
         <form style={style.data} onSubmit={(e) => handleSubmit(e)}>
           <label>First name</label>
@@ -145,7 +141,7 @@ function PatientEdit(props) {
             onChange={(e) =>
               setPatientData({
                 ...patientData,
-                surname: e.target.value,
+                email: e.target.value,
               })
             }
           />{" "}
@@ -156,7 +152,7 @@ function PatientEdit(props) {
             onChange={(e) =>
               setPatientData({
                 ...patientData,
-                surname: e.target.value,
+                gender: e.target.value,
               })
             }
           />
@@ -178,7 +174,7 @@ function PatientEdit(props) {
             onChange={(e) =>
               setPatientData({
                 ...patientData,
-                country: e.target.value,
+                birth: e.target.value,
               })
             }
           />
@@ -189,7 +185,7 @@ function PatientEdit(props) {
             onChange={(e) =>
               setPatientData({
                 ...patientData,
-                country: e.target.value,
+                location: e.target.value,
               })
             }
           />

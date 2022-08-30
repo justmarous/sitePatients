@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPatientsId, selectUser, setUser } from "../redux/userSlice";
-import { addUser, removeUser, selectListUser } from "../redux/listUserSlice";
+import {
+  addUser,
+  removeUser,
+  selectCurrentUser,
+  selectListUser,
+} from "../redux/listUserSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -69,7 +74,7 @@ const style = {
 
 function PatientEdit(props) {
   const { index } = useParams();
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const listUser = useSelector(selectListUser);
   const allPatients = useSelector(selectPatientsId);

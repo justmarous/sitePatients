@@ -5,6 +5,7 @@ import { selectUser } from "../redux/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { selectCurrentUser } from "../redux/listUserSlice";
 
 const style = {
   patients: {
@@ -125,7 +126,11 @@ const style = {
 };
 
 function MyPatients(props) {
-  const user = useSelector(selectUser);
+  // const testuser = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
+
+  console.table(user);
+  // console.table(testuser);
 
   return (
     <>
@@ -155,7 +160,6 @@ const NewPatient = () => {
 };
 
 const Patient = (patient) => {
-  console.log(patient.patient.index);
   return (
     <div style={style.patientCard.box}>
       <h2 style={style.patientCard.title}>
