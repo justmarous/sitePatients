@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { selectPatientsId, selectUser } from "../redux/userSlice";
+import { selectUser } from "../redux/userSlice";
+import { selectPatientsId } from "../redux/listUserSlice";
 import { useSelector } from "react-redux";
 import shortid from "shortid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

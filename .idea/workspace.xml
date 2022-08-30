@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/src/components/PatientAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PatientAdd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PatientEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PatientEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/listUserSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/listUserSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/userSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,7 @@
       <workItem from="1660660028027" duration="11017000" />
       <workItem from="1660923570704" duration="4811000" />
       <workItem from="1661184324889" duration="9069000" />
-      <workItem from="1661266858108" duration="9319000" />
+      <workItem from="1661266858108" duration="11692000" />
     </task>
     <servers />
   </component>

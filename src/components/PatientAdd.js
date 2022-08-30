@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectPatientsId, selectUser, setUser } from "../redux/userSlice";
+import { selectUser, setUser } from "../redux/userSlice";
 import {
   addPatient,
   addUser,
   removeUser,
   selectListUser,
+  selectPatientsId,
 } from "../redux/listUserSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faBars } from "@fortawesome/free-solid-svg-icons";

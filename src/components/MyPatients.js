@@ -126,11 +126,7 @@ const style = {
 };
 
 function MyPatients(props) {
-  // const testuser = useSelector(selectUser);
   const user = useSelector(selectCurrentUser);
-
-  console.table(user);
-  // console.table(testuser);
 
   return (
     <>
@@ -172,7 +168,7 @@ const Patient = (patient) => {
             {patient.patient.name} {patient.patient.surname}
           </p>
           <p style={style.patientCard.birth}>
-            Date of birth {patient.patient.birth}
+            Date of birth: {patient.patient.birth}
           </p>
         </span>
       </div>
