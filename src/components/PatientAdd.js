@@ -73,13 +73,16 @@ const style = {
   },
 };
 
-function PatientEdit(props) {
+function PatientEdit() {
   const { index } = useParams();
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const listUser = useSelector(selectListUser);
   const allPatients = useSelector(selectPatientsId);
   const importedPatient = user.patients.filter((e) => e.index === index)[0];
+
+  // console.log(parseInt(allPatients[allPatients.length - 1]) + 1);
+  // console.log(parseInt(allPatients[allPatients.length - 1]) + 1);
+  // console.log(parseInt(allPatients[allPatients.length - 1]) + 1);
 
   const [patientData, setPatientData] = useState({
     name: "",

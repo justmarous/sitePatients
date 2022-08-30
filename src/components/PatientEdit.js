@@ -82,10 +82,11 @@ function PatientEdit(props) {
   const dispatch = useDispatch();
   const listUser = useSelector(selectListUser);
   const allPatients = useSelector(selectPatientsId);
-  // const importedPatient = user.patients.filter((e) => e.index === index)[0];
+  const importedPatient = user.patients.filter((e) => e.index === index)[0];
 
-  const importedPatient = useSelector(selectPatient);
-  // console.table(testImportedPatient);
+  const testImportedPatient = useSelector(selectPatient);
+  //doesnt work yet
+  console.table(testImportedPatient);
   // console.table(importedPatient);
 
   const [patientData, setPatientData] = useState(importedPatient);

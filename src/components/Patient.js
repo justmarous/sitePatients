@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { selectUser } from "../redux/userSlice";
-import { selectPatientsId } from "../redux/listUserSlice";
+import { selectCurrentUser, selectPatientsId } from "../redux/listUserSlice";
 import { useSelector } from "react-redux";
 import shortid from "shortid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -123,7 +123,7 @@ const style = {
 
 function Patient(props) {
   const { index } = useParams();
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
   const allPatients = useSelector(selectPatientsId);
   const patient = user.patients.filter((e) => e.index === index)[0];
 

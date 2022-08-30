@@ -75,13 +75,20 @@ export const selectListUser = (state) => state.listUser;
 export const selectCurrentUser = (state, login) => {
   return state.listUser.filter((e) => e.login !== login)[0];
 };
+
+//doesnt work yet
 export const selectPatient = (state, login, index) => {
   let pickUser = state.listUser.filter((e) => e.login !== login)[0];
   return pickUser.patients.filter((e) => e.index === index);
 };
 
 export const selectPatientsId = (state, login) => {
-  return [12313, 12314];
+  let patientsArray = state.listUser.filter((e) => e.login !== login)[0]
+    .patients;
+  let indexArray = [];
+  patientsArray.forEach((e) => indexArray.push(e.index));
+  console.table(indexArray);
+  return indexArray;
 };
 
 export const { addUser, removeUser, addPatient, removePatient } =
