@@ -80,44 +80,25 @@ function PatientEdit(props) {
   const { index } = useParams();
   const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
-  const listUser = useSelector(selectListUser);
-  const allPatients = useSelector(selectPatientsId);
   const importedPatient = user.patients.filter((e) => e.index === index)[0];
 
-  const testImportedPatient = useSelector(selectPatient);
-  //doesnt work yet
-  console.table(testImportedPatient);
+  // const testImportedPatient = useSelector(selectPatient);
+  // //doesnt work yet
   // console.table(importedPatient);
+  // // console.table(importedPatient);
 
   const [patientData, setPatientData] = useState(importedPatient);
   const iconBack = <FontAwesomeIcon icon={faBackward} />;
 
+  console.log(patientData);
+
   function handleSubmit(e) {
-    e.preventDefault();
     let dataForReducer = {
       userID: user.login,
       patient: patientData,
     };
     dispatch(removePatient(dataForReducer));
     dispatch(addPatient(dataForReducer));
-    // for (let i = 0; i < user.patients.length; i++) {
-    //   if (listUser[i].index === user.index) {
-    //     dispatch(removeUser(listUser[i]));
-    //   }
-    // }
-    //
-    // e.preventDefault();
-    // dispatch(removeUser(user));
-    // for (let i = 0; i < listUser.length; i++) {
-    //   if (listUser[i].login === user.login) {
-    //     dispatch(removeUser(listUser[i]));
-    //     console.log(listUser[i]);
-    //   }
-    // }
-    // dispatch(setUser(userData));
-    // dispatch(addUser(userData));
-
-    console.log(patientData);
   }
 
   return (
