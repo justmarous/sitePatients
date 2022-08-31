@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import shortid from "shortid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward } from "@fortawesome/free-solid-svg-icons";
+import { parse } from "@fortawesome/fontawesome-svg-core";
 
 const style = {
   header: {
@@ -126,8 +127,9 @@ function Patient(props) {
   const user = useSelector(selectCurrentUser);
   const allPatients = useSelector(selectPatientsId);
   const patient = user.patients.filter((e) => e.index === index)[0];
-
   const iconBack = <FontAwesomeIcon icon={faBackward} />;
+
+  console.log(allPatients.indexOf(index) + " " + index);
 
   const Profile = () => {
     return (
@@ -164,7 +166,7 @@ function Patient(props) {
           </h1>
         )}
       </div>
-      {allPatients.indexOf(index) !== -1 ? (
+      {allPatients.indexOf(parseInt(index)) !== -1 ? (
         <section style={style.main}>
           <Profile />
           <div style={style.secondRow}>

@@ -91,7 +91,7 @@ export const selectCurrentUser = (state, login) => {
   return state.listUser.filter((e) => e.login !== login)[0];
 };
 
-//doesnt work yet
+// NOT USED ------- maybe someday
 // export const selectPatient = (state, login, index) => {
 //   let pickUser = state.listUser.filter((e) => e.login !== login)[0];
 //   return pickUser.patients.filter((e) => e.index === index);
