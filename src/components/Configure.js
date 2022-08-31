@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../tools/formSchema";
-import { addUser, removeUser } from "../redux/listUserSlice";
+import { addUser, removeUser, selectCurrentUser } from "../redux/listUserSlice";
 import { setUser } from "../redux/userSlice";
 import { selectListUser } from "../redux/listUserSlice";
 
@@ -51,7 +51,7 @@ const style = {
 };
 
 const Configure = () => {
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const listUser = useSelector(selectListUser);
 
@@ -76,17 +76,13 @@ const Configure = () => {
     patients: user.patients,
   });
 
-  console.log(user.patients);
-
   function handleSubmit(e) {
     e.preventDefault();
-    console.table(user);
 
     dispatch(removeUser(user));
     for (let i = 0; i < listUser.length; i++) {
       if (listUser[i].login === user.login) {
         dispatch(removeUser(listUser[i]));
-        console.log(listUser[i]);
       }
     }
     console.table(userData);

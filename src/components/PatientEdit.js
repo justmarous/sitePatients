@@ -93,6 +93,7 @@ function PatientEdit(props) {
   console.log(patientData);
 
   function handleSubmit(e) {
+    e.preventDefault();
     let dataForReducer = {
       userID: user.login,
       patient: patientData,
