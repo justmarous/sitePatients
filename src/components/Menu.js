@@ -52,8 +52,7 @@ const style = {
     color: "white",
   },
   menu: {
-    position: "relative",
-    display: "fixed",
+    position: "fixed",
     width: "250px",
     minWidth: "250px",
     backgroundColor: "green",
@@ -111,25 +110,28 @@ function Menu(props) {
   }
 
   return (
-    <div style={menuStyle}>
-      <Link to={"/"} style={style.link}>
-        <div style={style.logo} hidden={hideElements}>
-          {iconLogo}DEN97{" "}
-          <p style={{ fontSize: "9px", color: "black" }}>research unit</p>
-        </div>
-      </Link>
-      <div style={style.burger} onClick={() => hideMenu()}>
-        {iconMenu}
-      </div>
-      <ul style={style.list} hidden={hideElements}>
-        <Link to={"/support"} style={style.link}>
-          <li key={4}>
-            <div style={style.listItem}>{iconSupport}</div> Support
-          </li>
+    <>
+      <div style={{ ...menuStyle, position: "static" }} />
+      <div style={menuStyle}>
+        <Link to={"/"} style={style.link}>
+          <div style={style.logo} hidden={hideElements}>
+            {iconLogo}DEN97{" "}
+            <p style={{ fontSize: "9px", color: "black" }}>research unit</p>
+          </div>
         </Link>
-        {user.name !== "" ? <AfterLogin /> : null}
-      </ul>
-    </div>
+        <div style={style.burger} onClick={() => hideMenu()}>
+          {iconMenu}
+        </div>
+        <ul style={style.list} hidden={hideElements}>
+          <Link to={"/support"} style={style.link}>
+            <li key={4}>
+              <div style={style.listItem}>{iconSupport}</div> Support
+            </li>
+          </Link>
+          {user.name !== "" ? <AfterLogin /> : null}
+        </ul>
+      </div>
+    </>
   );
 }
 
