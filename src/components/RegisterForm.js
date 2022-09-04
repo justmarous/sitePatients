@@ -13,7 +13,7 @@ function RegisterForm() {
   const onSubmit = (data) => {
     dispatch(addUser(data));
     console.log(data);
-    dispatch(switchForm(false));
+    dispatch(switchForm(true));
   };
 
   const {

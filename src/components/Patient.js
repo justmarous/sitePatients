@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { selectUser } from "../redux/userSlice";
-import { selectCurrentUser, selectPatientsId } from "../redux/listUserSlice";
+import { selectLogin, selectUser } from "../redux/userSlice";
+import {
+  selectCurrentUser,
+  selectPatient,
+  selectPatientsId,
+} from "../redux/listUserSlice";
 import { useSelector } from "react-redux";
 import shortid from "shortid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,9 +15,9 @@ import { patientProfileStyles as style } from "../styles/patientProfileStyles";
 
 function Patient(props) {
   const { index } = useParams();
-  const user = useSelector(selectCurrentUser);
-  const allPatients = useSelector(selectPatientsId);
-  const patient = user.patients.filter((e) => e.index === index)[0];
+  const currentUserLogin = useSelector(selectLogin);
+  const allPatients = useSelector(selectPatientsId(currentUserLogin));
+  const patient = useSelector(selectPatient(index, currentUserLogin));
   const iconBack = <FontAwesomeIcon icon={faBackward} />;
 
   const Profile = () => {

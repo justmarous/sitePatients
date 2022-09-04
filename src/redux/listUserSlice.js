@@ -43,8 +43,22 @@ export const listUserSlice = createSlice({
   name: "listUser",
   initialState,
   reducers: {
+    updateUser: (state, action) => {
+      return [
+        ...state,
+        {
+          ...action.payload,
+        },
+      ];
+    },
     addUser: (state, action) => {
-      return [...state, { ...action.payload }];
+      return [
+        ...state,
+        {
+          ...action.payload,
+          patients: [],
+        },
+      ];
     },
     removeUser: (state, action) => {
       return state.filter((element) => element.login !== action.payload.login);
@@ -87,25 +101,23 @@ export const listUserSlice = createSlice({
 });
 
 export const selectListUser = (state) => state.listUser;
-export const selectCurrentUser = (state, login) => {
-  return state.listUser.filter((e) => e.login !== login)[0];
+export const selectCurrentUser = (x) => (state) => {
+  return state.listUser.filter((e) => e.login === x)[0];
 };
 
-// NOT USED ------- maybe someday
-// export const selectPatient = (state, login, index) => {
-//   let pickUser = state.listUser.filter((e) => e.login !== login)[0];
-//   return pickUser.patients.filter((e) => e.index === index);
-// };
+export const selectPatient = (patientIndex, userLogin) => (state) => {
+  return state.listUser
+    .filter((e) => e.login === userLogin.toString())[0]
+    .patients.filter((p) => parseInt(p.index) === parseInt(patientIndex))[0];
+};
 
-export const selectPatientsId = (state, login) => {
-  let patientsArray = state.listUser.filter((e) => e.login !== login)[0]
-    .patients;
+export const selectPatientsId = (x) => (state) => {
+  let patientsArray = state.listUser.filter((e) => e.login === x)[0].patients;
   let indexArray = [];
   patientsArray.forEach((e) => indexArray.push(parseInt(e.index)));
-  // console.table(indexArray);
   return indexArray.sort((a, b) => a - b);
 };
 
-export const { addUser, removeUser, addPatient, removePatient } =
+export const { addUser, removeUser, addPatient, removePatient, updateUser } =
   listUserSlice.actions;
 export default listUserSlice.reducer;

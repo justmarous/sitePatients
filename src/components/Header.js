@@ -47,18 +47,16 @@ function Header(props) {
         variant={"warning"}
         title={name}
       >
-        <Dropdown.Item eventKey="1">
-          <Link style={style.link} to={"/configure"}>
-            <div style={{ width: "100%" }}>Configure</div>
-          </Link>
+        <Dropdown.Item eventKey="1" as={Link} to={"/configure"}>
+          {/*<Link style={style.link} to={"/configure"}>*/}
+          <div style={{ width: "100%" }}>Configure</div>
+          {/*</Link>*/}
         </Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item eventKey="2">
-          <Link style={style.link} to={"/"}>
-            <div style={{ width: "100%" }} onClick={() => dispatch(logOut())}>
-              Log out
-            </div>
-          </Link>
+        <Dropdown.Item eventKey="2" as={Link} to={"/"}>
+          <div style={{ width: "100%" }} onClick={() => dispatch(logOut())}>
+            Log out
+          </div>
         </Dropdown.Item>
       </SplitButton>
     );

@@ -19,8 +19,8 @@ function LoginForm(props) {
     e.preventDefault();
     for (let i = 0; i < listUser.length; i++) {
       if (
-        listUser[i].login === credentials.login &&
-        listUser[i].password === credentials.password
+        listUser[i].login.toString() === credentials.login &&
+        listUser[i].password.toString() === credentials.password
       ) {
         console.log("logging in...");
         dispatch(setUser(listUser[i]));

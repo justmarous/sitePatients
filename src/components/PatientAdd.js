@@ -1,88 +1,25 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setUser } from "../redux/userSlice";
+import { selectLogin, selectUser, setUser } from "../redux/userSlice";
 import {
   addPatient,
   addUser,
   removeUser,
+  selectCurrentUser,
   selectListUser,
   selectPatientsId,
 } from "../redux/listUserSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faBars } from "@fortawesome/free-solid-svg-icons";
-
-const style = {
-  h1: {
-    fontSize: "20px",
-    padding: "0 30px",
-    fontWeight: "600",
-  },
-  section: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "30px",
-  },
-  data: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "10px 30px",
-  },
-  h2: {
-    fontSize: "17px",
-    padding: "12px 10px 12px 30px",
-  },
-  input: {
-    margin: "10px 30px",
-    fontSize: "17px",
-    width: "450px",
-  },
-  button: {
-    position: "relative",
-    borderRadius: "10px",
-    width: "250px",
-    display: "block",
-    margin: "30px 25%",
-    border: "none",
-    color: "white",
-    backgroundColor: "green",
-    fontWeight: "700",
-    fontSize: "16px",
-    height: "40px",
-    marginBottom: "5px",
-    cursor: "pointer",
-    textDecoration: "none",
-  },
-  link: {
-    position: "relative",
-    borderRadius: "10px",
-    width: "250px",
-    display: "block",
-    margin: "30px 25%",
-    border: "none",
-    color: "white",
-    backgroundColor: "green",
-    fontWeight: "700",
-    fontSize: "16px",
-    height: "40px",
-    marginBottom: "5px",
-    cursor: "pointer",
-    textDecoration: "none",
-    textAlign: "center",
-    paddingTop: "7px",
-  },
-};
+import { useNavigate } from "react-router-dom";
+import { patientAddStyle as style } from "../styles/patientAddStyle";
 
 function PatientEdit() {
-  const { index } = useParams();
-  const user = useSelector(selectUser);
+  const currentUserLogin = useSelector(selectLogin);
+  const user = useSelector(selectCurrentUser(currentUserLogin));
   const dispatch = useDispatch();
-  const allPatients = useSelector(selectPatientsId);
-  const importedPatient = user.patients.filter((e) => e.index === index)[0];
-
-  // console.log(parseInt(allPatients[allPatients.length - 1]) + 1);
-  // console.log(parseInt(allPatients[allPatients.length - 1]) + 1);
-  // console.log(parseInt(allPatients[allPatients.length - 1]) + 1);
+  const allPatients = useSelector(selectPatientsId(currentUserLogin));
 
   const [patientData, setPatientData] = useState({
     name: "",
@@ -93,7 +30,7 @@ function PatientEdit() {
     location: "",
     telephone: "",
     index:
-      allPatients.length !== 1
+      allPatients.length > 0
         ? parseInt(allPatients[allPatients.length - 1]) + 1
         : 1000,
     mutation: "",
@@ -102,6 +39,7 @@ function PatientEdit() {
   });
   const iconBack = <FontAwesomeIcon icon={faBackward} />;
 
+  let navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     let dataForReducer = {
@@ -109,6 +47,7 @@ function PatientEdit() {
       patient: patientData,
     };
     dispatch(addPatient(dataForReducer));
+    navigate(-1);
   }
 
   return (
@@ -195,7 +134,7 @@ function PatientEdit() {
           />
           <button
             type={"submit"}
-            style={style.button}
+            style={style.link}
             onClick={(e) => handleSubmit(e)}
           >
             Add patient

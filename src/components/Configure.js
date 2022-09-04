@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { loginformStyles } from "../styles/loginformStyles";
-import { selectUser } from "../redux/userSlice";
+import { selectLogin, selectUser } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../tools/formSchema";
-import { addUser, removeUser, selectCurrentUser } from "../redux/listUserSlice";
+import {
+  addPatient,
+  addUser,
+  removeUser,
+  selectCurrentUser,
+  updateUser,
+} from "../redux/listUserSlice";
 import { setUser } from "../redux/userSlice";
 import { selectListUser } from "../redux/listUserSlice";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   h1: {
@@ -51,7 +58,8 @@ const style = {
 };
 
 const Configure = () => {
-  const user = useSelector(selectCurrentUser);
+  const currentUserLogin = useSelector(selectLogin);
+  const user = useSelector(selectCurrentUser(currentUserLogin));
   const dispatch = useDispatch();
   const listUser = useSelector(selectListUser);
 
@@ -76,18 +84,18 @@ const Configure = () => {
     patients: user.patients,
   });
 
+  let navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-
     dispatch(removeUser(user));
     for (let i = 0; i < listUser.length; i++) {
       if (listUser[i].login === user.login) {
         dispatch(removeUser(listUser[i]));
       }
     }
-    console.table(userData);
     dispatch(setUser(userData));
-    dispatch(addUser(userData));
+    dispatch(updateUser(userData));
+    navigate(-1);
   }
 
   return (
