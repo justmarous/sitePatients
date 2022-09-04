@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb01288-6561-4456-b9f7-7c98363b58da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/styles/myPatientsStyles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/patientAddStyle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/patientEditStyle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Configure.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Configure.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyPatients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyPatients.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PatientAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PatientAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PatientEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PatientEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegisterForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/listUserSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/listUserSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/userSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/patientProfileStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/patientProfileStyles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +80,7 @@
       <workItem from="1661266858108" duration="13085000" />
       <workItem from="1661950038053" duration="13535000" />
       <workItem from="1662021126730" duration="4189000" />
-      <workItem from="1662030719834" duration="8417000" />
+      <workItem from="1662030719834" duration="13616000" />
     </task>
     <servers />
   </component>

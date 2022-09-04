@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { selectLogin, selectUser } from "../redux/userSlice";
 import {
+  addPatient,
+  removePatient,
   selectCurrentUser,
   selectPatient,
   selectPatientsId,
 } from "../redux/listUserSlice";
-import { useSelector } from "react-redux";
-import shortid from "shortid";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward } from "@fortawesome/free-solid-svg-icons";
-import { parse } from "@fortawesome/fontawesome-svg-core";
 import { patientProfileStyles as style } from "../styles/patientProfileStyles";
 
 function Patient(props) {
@@ -19,6 +19,9 @@ function Patient(props) {
   const allPatients = useSelector(selectPatientsId(currentUserLogin));
   const patient = useSelector(selectPatient(index, currentUserLogin));
   const iconBack = <FontAwesomeIcon icon={faBackward} />;
+  const user = useSelector(selectCurrentUser(currentUserLogin));
+  const dispatch = useDispatch();
+  const [patientData, setPatientData] = useState(patient);
 
   const Profile = () => {
     return (
@@ -51,25 +54,55 @@ function Patient(props) {
   };
 
   const Genetics = () => {
-    const [genetics, setGenetics] = useState(patient.genetics);
+    const [mutation, setMutation] = useState(patient.mutation);
+    const [classification, setClassification] = useState(
+      patient.classification
+    );
+
+    function handleClick() {
+      let dataForReducer = {
+        userID: user.login,
+        patient: {
+          ...patientData,
+          classification: classification,
+          mutation: mutation,
+        },
+      };
+      dispatch(removePatient(dataForReducer));
+      dispatch(addPatient(dataForReducer));
+    }
 
     return (
       <div style={style.genetics.box}>
-        <div style={style.titles}>
-          <div style={style.circle} />
-          Genetic information
+        <div style={style.profile.top}>
+          <div style={style.titles}>
+            <div style={style.circle} />
+            Genetics
+          </div>
+          <button style={style.genetics.edit} onClick={() => handleClick()}>
+            Save
+          </button>
         </div>
-        <button style={style.genetics.edit}>Edit genetic information</button>
+        <p style={style.genetics.title}>Mutation</p>
         <input
           type="text"
-          value={genetics}
-          onChange={(e) => setGenetics(e.target.value)}
+          value={mutation}
+          style={style.genetics.mutation}
+          onChange={(e) => setMutation(e.target.value)}
+        />
+        <p style={style.genetics.title}>Classification</p>
+        <textarea
+          value={classification}
+          style={style.genetics.input}
+          onChange={(e) => setClassification(e.target.value)}
         />
       </div>
     );
   };
 
   const Diary = () => {
+    const [diary, setDiary] = useState("");
+
     return (
       <div style={style.diary.box}>
         <div style={style.titles}>
@@ -77,6 +110,11 @@ function Patient(props) {
           Seizure dairy
         </div>
         <button style={style.diary.edit}>Edit diary</button>
+        <textarea
+          value={diary}
+          style={style.diary.input}
+          onChange={(e) => setDiary(e.target.value)}
+        />
       </div>
     );
   };
