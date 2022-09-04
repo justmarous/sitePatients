@@ -101,7 +101,19 @@ function Patient(props) {
   };
 
   const Diary = () => {
-    const [diary, setDiary] = useState("");
+    const [seizureDiary, setSeizureDiary] = useState(patient.seizureDiary);
+
+    function handleClick() {
+      let dataForReducer = {
+        userID: user.login,
+        patient: {
+          ...patientData,
+          seizureDiary: seizureDiary,
+        },
+      };
+      dispatch(removePatient(dataForReducer));
+      dispatch(addPatient(dataForReducer));
+    }
 
     return (
       <div style={style.diary.box}>
@@ -109,11 +121,13 @@ function Patient(props) {
           <div style={style.circle} />
           Seizure dairy
         </div>
-        <button style={style.diary.edit}>Edit diary</button>
+        <button style={style.diary.edit} onClick={() => handleClick()}>
+          Save changes
+        </button>
         <textarea
-          value={diary}
+          value={seizureDiary}
           style={style.diary.input}
-          onChange={(e) => setDiary(e.target.value)}
+          onChange={(e) => setSeizureDiary(e.target.value)}
         />
       </div>
     );
