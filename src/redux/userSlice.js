@@ -28,14 +28,8 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser: (state, action) => {
-      console.log("user set");
-      return action.payload;
-    },
-    logOut: (state) => {
-      console.log("logging out");
-      return initialState;
-    },
+    setUser: (state, action) => action.payload,
+    logOut: () => initialState,
   },
 });
 

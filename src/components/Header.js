@@ -1,22 +1,12 @@
-import React, { useCallback } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowTurnDown, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectUser } from "../redux/userSlice";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link, useHistory, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SplitButton from "react-bootstrap/SplitButton";
 
-function Header(props) {
-  const { name, surname } = useSelector(selectUser);
+function Header() {
+  const { name } = useSelector(selectUser);
   const dispatch = useDispatch();
-
-  const iconGlobe = (
-    <FontAwesomeIcon style={{ color: "green" }} icon={faGlobe} />
-  );
-  const iconArrow = (
-    <FontAwesomeIcon style={{ color: "grey" }} icon={faArrowTurnDown} />
-  );
 
   const style = {
     header: {
@@ -48,9 +38,7 @@ function Header(props) {
         title={name}
       >
         <Dropdown.Item eventKey="1" as={Link} to={"/configure"}>
-          {/*<Link style={style.link} to={"/configure"}>*/}
           <div style={{ width: "100%" }}>Configure</div>
-          {/*</Link>*/}
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item eventKey="2" as={Link} to={"/"}>
@@ -62,14 +50,7 @@ function Header(props) {
     );
   };
 
-  return (
-    <div style={style.header}>
-      {/*<div style={style.item}>*/}
-      {/*  {iconGlobe} En {iconArrow}*/}
-      {/*</div>*/}
-      {name !== "" ? <AfterLogin /> : null}
-    </div>
-  );
+  return <div style={style.header}>{name !== "" ? <AfterLogin /> : null}</div>;
 }
 
 export default Header;

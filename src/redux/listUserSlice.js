@@ -63,9 +63,8 @@ export const listUserSlice = createSlice({
     removeUser: (state, action) => {
       return state.filter((element) => element.login !== action.payload.login);
     },
-    addPatient: (state, action) => {
-      //we pass payload = (userID,patient)
-      return state.forEach((e) => {
+    addPatient: (state, action) =>
+      state.forEach((e) => {
         if (e.login === action.payload.userID.toString()) {
           e.patients.push({
             name: action.payload.patient.name.toString(),
@@ -81,13 +80,11 @@ export const listUserSlice = createSlice({
             seizureDiary: action.payload.patient.seizureDiary.toString(),
           });
         }
-      });
-    },
-    removePatient: (state, action) => {
-      //we pass payload = (userID,patient)
-      return state.map((user) => {
+      }),
+    removePatient: (state, action) =>
+      state.map((user) => {
         if (user.login === action.payload.userID.toString()) {
-          let patientList = user.patients;
+          const patientList = user.patients;
           return {
             ...user,
             patients: patientList.filter(
@@ -95,24 +92,23 @@ export const listUserSlice = createSlice({
             ),
           };
         } else return user;
-      });
-    },
+      }),
   },
 });
 
 export const selectListUser = (state) => state.listUser;
-export const selectCurrentUser = (x) => (state) => {
-  return state.listUser.filter((e) => e.login === x)[0];
-};
+export const selectCurrentUser = (currentUserLogin) => (state) =>
+  state.listUser.filter((e) => e.login === currentUserLogin)[0];
 
-export const selectPatient = (patientIndex, userLogin) => (state) => {
-  return state.listUser
-    .filter((e) => e.login === userLogin.toString())[0]
+export const selectPatient = (patientIndex, currentUserLogin) => (state) =>
+  state.listUser
+    .filter((e) => e.login === currentUserLogin.toString())[0]
     .patients.filter((p) => parseInt(p.index) === parseInt(patientIndex))[0];
-};
 
-export const selectPatientsId = (x) => (state) => {
-  let patientsArray = state.listUser.filter((e) => e.login === x)[0].patients;
+export const selectPatientsId = (currentUserLogin) => (state) => {
+  let patientsArray = state.listUser.filter(
+    (e) => e.login === currentUserLogin
+  )[0].patients;
   let indexArray = [];
   patientsArray.forEach((e) => indexArray.push(parseInt(e.index)));
   return indexArray.sort((a, b) => a - b);

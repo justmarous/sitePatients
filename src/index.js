@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import Configure from "./components/Configure";
 import reportWebVitals from "./reportWebVitals";
-import { HashRouter, Route, Routes, Switch } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Support from "./components/Support";
 import "bootstrap/dist/css/bootstrap.min.css";
 import store from "./redux/store";
@@ -16,19 +15,9 @@ import Patient from "./components/Patient";
 import PatientEdit from "./components/PatientEdit";
 import PatientAdd from "./components/PatientAdd";
 
-const Test = () => {
-  console.log("dupa");
-  return (
-    <>
-      <h1>yeye oh</h1>
-    </>
-  );
-};
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-function Dupa() {
-  console.log("dupa render");
+function WrongWay() {
   return <h1>Wrong address</h1>;
 }
 
@@ -95,7 +84,7 @@ root.render(
                 <Menu style={{ position: "fixed" }} />
                 <div style={style.main}>
                   <Header />
-                  <Dupa />
+                  <WrongWay />
                 </div>
               </div>
             }

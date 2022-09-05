@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectListUser } from "../redux/listUserSlice";
 import { loginformStyles } from "../styles/loginformStyles";
 import { setUser } from "../redux/userSlice";
-import { Link } from "react-router-dom";
 
-function LoginForm(props) {
+function LoginForm() {
   const listUser = useSelector(selectListUser);
   const dispatch = useDispatch();
   const [credentials, setCredentials] = useState({ login: "", password: "" });
@@ -22,11 +21,9 @@ function LoginForm(props) {
         listUser[i].login.toString() === credentials.login &&
         listUser[i].password.toString() === credentials.password
       ) {
-        console.log("logging in...");
         dispatch(setUser(listUser[i]));
         setNoSuchUser(false);
       } else {
-        console.log("no such user");
         setNoSuchUser(true);
       }
     }

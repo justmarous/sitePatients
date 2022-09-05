@@ -8,9 +8,7 @@ export const registerFormSlice = createSlice({
   name: "registerForm",
   initialState,
   reducers: {
-    switchForm: (state, action) => {
-      return action.payload;
-    },
+    switchForm: (state, action) => action.payload,
   },
 });
 

@@ -136,7 +136,7 @@ function Patient(props) {
   return (
     <>
       <div style={style.header}>
-        {patient === undefined ? null : (
+        {patient && (
           <h1 style={style.h1}>
             Welcome to the Den 97 {patient.name}'s Centre
           </h1>

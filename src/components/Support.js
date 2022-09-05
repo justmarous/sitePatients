@@ -1,8 +1,6 @@
 import React from "react";
-import Menu from "./Menu";
-import Header from "./Header";
 
-function Support(props) {
+function Support() {
   const style = {
     content: {
       height: "500px",
@@ -10,7 +8,6 @@ function Support(props) {
       fontSize: "15px",
       backgroundColor: "green",
       opacity: "0.5",
-      // width: "100%",
       padding: "0 50px",
     },
     support: {

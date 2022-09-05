@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLogin, selectUser, setUser } from "../redux/userSlice";
+import { selectLogin } from "../redux/userSlice";
 import {
   addPatient,
-  addUser,
   removePatient,
-  removeUser,
   selectCurrentUser,
-  selectListUser,
   selectPatient,
-  selectPatientsId,
 } from "../redux/listUserSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBackward, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBackward } from "@fortawesome/free-solid-svg-icons";
 import { patientEditStyle as style } from "../styles/patientEditStyle";
 
-function PatientEdit(props) {
+function PatientEdit() {
   const { index } = useParams();
   const currentUserLogin = useSelector(selectLogin);
   const user = useSelector(selectCurrentUser(currentUserLogin));

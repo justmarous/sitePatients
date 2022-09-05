@@ -1,6 +1,5 @@
 import React from "react";
 import Login from "./Login";
-import Header from "./Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobeEurope,
@@ -13,14 +12,14 @@ import ResetPassword from "./ResetPassword";
 import { selectUser } from "../redux/userSlice";
 import MyPatients from "./MyPatients";
 
-function Landing(props) {
+function Landing() {
   const user = useSelector(selectUser);
 
   let iconStyle = {
     padding: "0 20px",
   };
 
-  const resetting = useSelector(selectResettingState);
+  const isResetting = useSelector(selectResettingState);
 
   const iconPen = <FontAwesomeIcon style={iconStyle} icon={faPen} />;
   const iconGlobe = <FontAwesomeIcon style={iconStyle} icon={faGlobeEurope} />;
@@ -38,11 +37,9 @@ function Landing(props) {
     backgroundImage:
       "linear-gradient(to right,rgba(0, 128, 0, 0.8), rgba(15, 112, 1, 0.25)),url(https://images.unsplash.com/photo-1581952976147-5a2d15560349?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
     position: "absolute",
-    // backgroundImage: "url(https://images.unsplash.com/photo-1581952976147-5a2d15560349?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    // opacity: "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
     height: "100%",
     zIndex: "1",
     width: "100%",
@@ -64,13 +61,13 @@ function Landing(props) {
       zIndex: "1",
       minWidth: "1000px",
       transition: "0.1s",
-      filter: !resetting ? "blur(0)" : "blur(10px)",
+      filter: !isResetting ? "blur(0)" : "blur(10px)",
     },
   };
 
   return (
     <>
-      {resetting ? <ResetPassword style={{ zIndex: "2" }} /> : ""}
+      {isResetting && <ResetPassword style={{ zIndex: "2" }} />}
       <div style={style.blur} hidden={user.name !== ""}>
         <section style={styleLandingSection}>
           <div style={stylePicture} />
@@ -92,7 +89,7 @@ function Landing(props) {
         </section>
         <Login />
       </div>
-      {user.name !== "" ? <MyPatients /> : null}
+      {user.name && <MyPatients />}
     </>
   );
 }

@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { loginformStyles } from "../styles/loginformStyles";
-import { selectLogin, selectUser } from "../redux/userSlice";
+import React, { useState } from "react";
+import { selectLogin } from "../redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { formSchema } from "../tools/formSchema";
 import {
-  addPatient,
-  addUser,
   removeUser,
   selectCurrentUser,
   updateUser,
@@ -63,17 +57,6 @@ const Configure = () => {
   const dispatch = useDispatch();
   const listUser = useSelector(selectListUser);
 
-  const {
-    register,
-    formState: { errors },
-    reset,
-    watch,
-    getValues,
-  } = useForm({
-    mode: "onTouched",
-    resolver: yupResolver(formSchema),
-  });
-
   const [userData, setUserData] = useState({
     name: user.name,
     surname: user.surname,
@@ -84,7 +67,7 @@ const Configure = () => {
     patients: user.patients,
   });
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(removeUser(user));

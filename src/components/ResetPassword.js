@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { doReset, selectResettingState } from "../redux/resetSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { doReset } from "../redux/resetSlice";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCross, faPen, faX } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
-function ResetPassword(props) {
+function ResetPassword() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
 
-  let style = {
+  const style = {
     icon: {
       position: "absolute",
       color: "orange",
@@ -86,6 +86,7 @@ function ResetPassword(props) {
           type={"text"}
           alt={"Enter your email"}
           style={style.input}
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <button style={style.button} onClick={() => dispatch(doReset())}>

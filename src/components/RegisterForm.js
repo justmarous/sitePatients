@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser, selectListUser } from "../redux/listUserSlice";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/listUserSlice";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { formSchema } from "../tools/formSchema";
+import { formSchema } from "../utils/formSchema";
 import { loginformStyles as style } from "../styles/loginformStyles";
 import { switchForm } from "../redux/registerFormSlice";
 
 function RegisterForm() {
   const dispatch = useDispatch();
-  const [noSuchUser, setNoSuchUser] = useState(false);
   const onSubmit = (data) => {
     dispatch(addUser(data));
-    console.log(data);
     dispatch(switchForm(true));
   };
 
@@ -20,9 +18,6 @@ function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    watch,
-    getValues,
   } = useForm({
     mode: "onTouched",
     resolver: yupResolver(formSchema),

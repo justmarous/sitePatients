@@ -1,22 +1,21 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    resetting: false,
-}
+  isResetting: false,
+};
 
 export const resetSlice = createSlice({
-    name: 'reset',
-    initialState,
-    reducers:{
-        doReset: (state,action)=>{
-            return{
-                resetting: !state.resetting
-            }
-        }
-    }
-})
+  name: "reset",
+  initialState,
+  reducers: {
+    doReset: (state, action) => {
+      return {
+        isResetting: !state.isResetting,
+      };
+    },
+  },
+});
 
-
-export const selectResettingState = (state) => state.reset.resetting
-export const {doReset} = resetSlice.actions
-export default resetSlice.reducer
+export const selectResettingState = (state) => state.reset.isResetting;
+export const { doReset } = resetSlice.actions;
+export default resetSlice.reducer;

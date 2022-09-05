@@ -62,7 +62,7 @@ const style = {
   },
 };
 
-function Menu(props) {
+function Menu() {
   const iconSupport = <FontAwesomeIcon icon={faQuestion} />;
   const iconMenu = <FontAwesomeIcon icon={faBars} />;
   const iconLogo = <FontAwesomeIcon icon={faDna} />;
@@ -76,7 +76,6 @@ function Menu(props) {
   const [hideElements, setHideElements] = useState(false);
 
   function handleLogOut() {
-    console.log("logging out... ");
     dispatch(logOut());
   }
 
@@ -108,7 +107,6 @@ function Menu(props) {
       });
     else setMenuStyle(style.menu);
     setHideElements(!hideElements);
-    console.log(menuStyle);
   }
 
   return (
