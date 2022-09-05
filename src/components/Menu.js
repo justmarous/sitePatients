@@ -56,7 +56,7 @@ const style = {
     position: "fixed",
     width: "250px",
     minWidth: "250px",
-    backgroundColor: "green",
+    backgroundColor: "orange",
     height: "100vh",
     transition: "0.25s",
   },
