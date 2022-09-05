@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faDna,
+  faHomeAlt,
   faKey,
   faQuestion,
   faUserPlus,
@@ -67,6 +68,7 @@ function Menu(props) {
   const iconLogo = <FontAwesomeIcon icon={faDna} />;
   const iconLogOut = <FontAwesomeIcon icon={faKey} />;
   const iconMyPatients = <FontAwesomeIcon icon={faUserPlus} />;
+  const iconHome = <FontAwesomeIcon icon={faHomeAlt} />;
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -128,7 +130,15 @@ function Menu(props) {
               <div style={style.listItem}>{iconSupport}</div> Support
             </li>
           </Link>
-          {user.name !== "" ? <AfterLogin /> : null}
+          {user.name !== "" ? (
+            <AfterLogin />
+          ) : (
+            <Link to={"/"} style={style.link}>
+              <li key={5}>
+                <div style={style.listItem}>{iconHome}</div> Home
+              </li>
+            </Link>
+          )}
         </ul>
       </div>
     </>
