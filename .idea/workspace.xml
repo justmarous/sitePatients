@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb01288-6561-4456-b9f7-7c98363b58da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/orange-site.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/orange-site.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <workItem from="1661950038053" duration="13535000" />
       <workItem from="1662021126730" duration="4189000" />
       <workItem from="1662030719834" duration="18419000" />
-      <workItem from="1662391015426" duration="1078000" />
+      <workItem from="1662391015426" duration="1293000" />
     </task>
     <servers />
   </component>
