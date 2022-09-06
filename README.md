@@ -3,6 +3,7 @@
 [Deployed version](https://justmarous-patient-center.onrender.com)
 
 This project is inspired by visual design created by grahic designer [Liza Aleksandrovych](https://www.linkedin.com/in/liza-aleksandrovych/?originalSubdomain=pl)
+
 Patient center is meant to be used as information center for guardians and researchers of patients affected by genetic illnesses.
 
 Application serves demostrational purposes of my coding abilities.
