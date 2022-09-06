@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Patient Center
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Deployed version](https://justmarous-patient-center.onrender.com)
 
-## Available Scripts
+This project is inspired by visual design created by grahic designer [Liza Aleksandrovych](https://www.linkedin.com/in/liza-aleksandrovych/?originalSubdomain=pl)
+Patient center is meant to be used as information center for guardians and researchers of patients affected by genetic illnesses.
 
-In the project directory, you can run:
+Application serves demostrational purposes of my coding abilities.
 
-### `npm start`
+## Technicalities
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+One can test the app by creating account and logging in or using following credentials:
+login: user@gmail.com
+password: qwerty1
 
-### `npm test`
+### Data storage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Application stores all information created by user in the session, it does not utilise any database and all data are deleted upon refresh.
 
-### `npm run build`
+### Functions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- user creation
+- user configuration
+- user-bound patient base manipulation: adding, configuring patiens data
+- adding information related to each patient 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Security & passwords
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As all data are kept in the store, passwords and data of other users created in the app are not protected, however as the site does not have external database, I did not want to focus on the topic of the data protection any further.
 
-### `npm run eject`
+### Markup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Styling of the app was in 95% done by hand, without use of aiding libraries what was partially my goal. I am aware of small CSS-related bugs and this will be the main issue I will be fixing in the future.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Additional remarks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- App bootstrapped by create-react-app, redux-toolkit used
+- focus on functional components
+- raw CSS styling, react-bootstrap used in the dropdown
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Planned future development
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+As the application serves mainly for my own training and presentation of my abilities, it will not be developed further, however some fixes are planned:
+- fixing relative imports
+- compartmentalization of components
+- styling relative to grid
+- styled components implementation
+- minor visual fixes
