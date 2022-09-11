@@ -39,7 +39,7 @@ Styling of the app was in 95% done by hand, without use of aiding libraries what
 
 - App bootstrapped by create-react-app, redux-toolkit used
 - focus on functional components
-- raw CSS styling, react-bootstrap used in the dropdown
+- inline styling
 
 ### Planned future development
 
